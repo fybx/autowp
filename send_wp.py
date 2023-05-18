@@ -5,17 +5,16 @@
 #
 import time
 from time import sleep
+from urllib.parse import quote_plus
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.webdriver import Options
 from selenium.webdriver.chrome.webdriver import WebDriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
-from urllib.parse import quote_plus
-
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.chrome import ChromeDriverManager
 
 API_FORMAT = "https://web.whatsapp.com/send?phone={}&text={}"
 SLEEP_SECS = 10
