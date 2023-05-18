@@ -50,6 +50,7 @@ def init_browser(options: Options = Options()) -> WebDriver:
 def main():
     xpath_tb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span'
     xpath_sb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]'
+    first = True
 
     message = get_message("message.txt")
     targets = get_targets("targets.txt")
