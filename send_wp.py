@@ -58,7 +58,7 @@ def main():
     sleep(15)
 
     message = quote_plus(message)
-    waiting = WebDriverWait(browser, 10)
+    waiting = WebDriverWait(browser, SLEEP_SECS)
 
     start = time.time()
     for target in targets:
