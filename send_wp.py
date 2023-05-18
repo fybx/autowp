@@ -83,6 +83,7 @@ def main():
             else:
                 first = False
 
+        # sleep as a padding before switching to next target
         sleep(1)
 
     end = time.time()
