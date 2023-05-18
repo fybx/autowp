@@ -1,0 +1,6 @@
+# JetBrains IDEs
+.idea/
+
+# Automation files
+message.txt
+targets.txt
