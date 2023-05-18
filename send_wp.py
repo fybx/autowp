@@ -47,6 +47,9 @@ def init_browser(options: Options = Options()) -> WebDriver:
 
 
 def main():
+    xpath_tb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span'
+    xpath_sb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]'
+
     message = get_message("message.txt")
     targets = get_targets("targets.txt")
     browser = init_browser()
@@ -61,13 +64,9 @@ def main():
     for target in targets:
         browser.get(API_FORMAT.format(target, message))
 
-        xpath_tb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span'
-        xpath_sb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]'
-
         # wait until the message is present in textbox
         textbox = waiting.until(ec.presence_of_element_located((By.XPATH, xpath_tb)), "Textbox was not found")
         if textbox.text != "":
-            print("Wait over")
             # get the send button and click on it
             send_button = browser.find_element(By.XPATH, xpath_sb)
             send_button.click()
