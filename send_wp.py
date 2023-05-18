@@ -19,6 +19,7 @@ from urllib.parse import quote_plus
 
 API_FORMAT = "https://web.whatsapp.com/send?phone={}&text={}"
 SLEEP_SECS = 10
+ASK_CONFRM = True
 
 
 def get_targets(targets_file_path: str) -> [str]:
@@ -71,6 +72,16 @@ def main():
             send_button = browser.find_element(By.XPATH, xpath_sb)
             send_button.click()
             print(f"Sent to +{target}")
+
+        if first and ASK_CONFRM:
+            print("WARNING: You have to confirm that you want to continue sending messages.")
+            print("After accepting, the automation will run until end of targets is reached.")
+            ask = input("Want to continue? (y/N): ").strip().lower()
+            if ask != "y":
+                break
+            else:
+                first = False
+
         sleep(1)
 
     end = time.time()
