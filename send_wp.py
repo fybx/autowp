@@ -42,13 +42,6 @@ def get_targets(targets_file_path: str) -> [str]:
     return [t.replace("\n", "").strip() for t in content]
 
 
-def get_message(message_file_path: str) -> str:
-    with open(message_file_path, "r") as f:
-        content = f.read()
-        f.close()
-    return content
-
-
 def init_browser(options: Options = Options()) -> WebDriver:
     """
     Initializes a browser object with given options class
