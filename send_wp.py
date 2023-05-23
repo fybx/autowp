@@ -65,7 +65,7 @@ def main():
     xpath_sb = '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]'
     first = True
 
-    message = get_message("message.txt")
+    message = read_file("message.txt")
     targets = get_targets("targets.txt")
     browser = init_browser()
 
