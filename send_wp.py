@@ -21,6 +21,20 @@ SLEEP_SECS = 10
 ASK_CONFRM = True
 
 
+def read_file(file_path: str) -> str:
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            return content
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+    except PermissionError:
+        print(f"Permission denied to read the file: {file_path}")
+    except Exception as e:
+        print(f"An unexpected error occurred while reading the file: {file_path}. Error: {e}")
+    return ""
+
+
 def get_targets(targets_file_path: str) -> [str]:
     with open(targets_file_path, "r") as f:
         content = f.readlines()
